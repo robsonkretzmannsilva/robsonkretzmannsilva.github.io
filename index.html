@@ -10,7 +10,15 @@
 <meta property="og:title" content="Robson Kretzmann · Desenvolvedor full stack">
 <meta property="og:description" content="Sócio e co-fundador da Syncfy. Sistemas em produção com .NET, TypeScript, Next.js e Supabase.">
 <meta property="og:locale" content="pt_BR">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D1526'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23F6F7F9'/%3E%3C/svg%3E">
+<meta property="og:url" content="https://robsonkretzmannsilva.github.io/">
+<meta property="og:image" content="https://robsonkretzmannsilva.github.io/img/robson-800.png">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Foto de Robson Kretzmann">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
@@ -88,6 +96,14 @@ h2{font-size:clamp(2rem,4vw,2.75rem)}
 .tags li{border:1px solid var(--rule);border-radius:999px;padding:.2rem .75rem;font-size:.875rem;color:var(--muted);background:var(--paper)}
 
 
+
+/* quem sou eu */
+.about{display:grid;grid-template-columns:15rem 1fr;gap:3.5rem;align-items:center}
+.about img{display:block;width:100%;height:auto;border-radius:50%;box-shadow:0 22px 44px -24px rgba(16,26,43,.5)}
+.about h2{margin-bottom:1.5rem}
+.about p+p{margin-top:1rem}
+.about .more{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1.75rem}
+
 /* trajetória */
 .tl{list-style:none;padding:0;position:relative}
 .tl::before{content:"";position:absolute;left:12.35rem;top:.6rem;bottom:.6rem;width:1px;background:var(--rule)}
@@ -164,7 +180,8 @@ h2{font-size:clamp(2rem,4vw,2.75rem)}
 footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid var(--night-rule);padding:1.75rem 0;font-size:.9rem}
 
 @media(max-width:900px){
-  .hero-grid,.showcase,.showcase.rev,.cards,.sys,.grid,.contact .inner,.tl>li,.edu{grid-template-columns:1fr}
+  .hero-grid,.showcase,.showcase.rev,.cards,.sys,.grid,.contact .inner,.tl>li,.edu,.about{grid-template-columns:1fr}
+  .about img{width:11rem}
   .tl::before{left:.35rem}.tl>li{padding-left:1.75rem}.tl>li::before{left:0}.tl .when{padding-top:0;margin-bottom:.35rem}
   .stack{grid-template-columns:1fr 1fr}
   .dl{grid-template-columns:8rem 1fr}
@@ -185,7 +202,7 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
 <header class="bar"><div class="wrap">
   <a class="mark serif" href="#" aria-label="Robson Kretzmann, início">RK</a>
   <nav aria-label="Seções">
-    <a href="#empresas">Trajetória</a><a href="#projetos">Projetos</a><a href="#sistemas">Sistemas privados</a><a href="#stack">Stack</a>
+    <a href="#sobre">Sobre</a><a href="#empresas">Trajetória</a><a href="#projetos">Projetos</a><a href="#sistemas">Sistemas privados</a><a href="#stack">Stack</a>
     <a class="pill" href="#contato">Contato</a>
   </nav>
 </div></header>
@@ -209,6 +226,20 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
 </div>
 
 <main id="conteudo">
+  <section id="sobre"><div class="wrap about">
+    <img src="img/robson.png" width="480" height="480" alt="Foto de Robson Kretzmann, de óculos escuros e agasalho azul-marinho, sorrindo à beira de um espelho d'água" loading="lazy">
+    <div>
+      <h2>Quem sou eu</h2>
+      <p>Sou Robson Kretzmann, diretor de tecnologia e sócio da Syncfy. Trabalho com desenvolvimento de software desde 2014, quando entrei na TMSA para integrar sistemas e criar ferramentas internas.</p>
+      <p>Depois passei pelo produto da Sohtech e por uma equipe remota no Grupo OLX, até co-fundar a Syncfy. Hoje lidero a tecnologia dos agentes de IA, do WhatsApp e da infraestrutura que mantém tudo no ar.</p>
+      <p>Meu trabalho vai do banco de dados à tela e inclui o que vem depois: publicar, monitorar e manter no ar. Faço o curso de Análise e Desenvolvimento de Sistemas no SENAI-RS.</p>
+      <div class="more">
+        <a class="link" href="https://www.linkedin.com/in/robson-kretzmann-b273552b3/">LinkedIn <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="link" href="https://github.com/robsonkretzmannsilva">GitHub <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </div>
+  </div></section>
+
   <section id="empresas"><div class="wrap">
     <div class="head"><h2>Trajetória</h2><p>Do desenvolvimento de integrações industriais à direção de tecnologia de um produto próprio.</p></div>
     <ol class="tl">
