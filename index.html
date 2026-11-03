@@ -4,209 +4,320 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Robson Kretzmann · Desenvolvedor full stack</title>
-<meta name="description" content="Desenvolvedor full stack. Sócio e co-fundador da Syncfy. .NET, TypeScript, Next.js e Supabase.">
-<meta name="theme-color" content="#F6F7F9">
+<meta name="description" content="Diretor de tecnologia e desenvolvedor full stack. Sócio e co-fundador da Syncfy. .NET, Vue.js, React, TypeScript e Supabase.">
+<meta name="theme-color" content="#0D1526">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Robson Kretzmann · Desenvolvedor full stack">
 <meta property="og:description" content="Sócio e co-fundador da Syncfy. Sistemas em produção com .NET, TypeScript, Next.js e Supabase.">
 <meta property="og:locale" content="pt_BR">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23101A2B'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23F6F7F9'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D1526'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23F6F7F9'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#F6F7F9;--ink:#101A2B;--muted:#5A6577;--rule:#D8DCE3;--accent:#3B3FB5;--white:#fff}
+:root{
+  --paper:#F6F7F9;--panel:#FFFFFF;--tint:#E9ECF3;
+  --ink:#101A2B;--muted:#5A6577;--rule:#D8DCE3;
+  --night:#0D1526;--night-2:#15213A;--night-rule:#2A3858;--on-night:#E8ECF5;--on-night-muted:#9FAAC3;
+  --accent:#3B3FB5;--accent-soft:#8E93FF;
+}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
 body{background:var(--paper);color:var(--ink);font:1.0625rem/1.65 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,.serif{font-family:"Newsreader",Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.015em}
 a{color:inherit;text-decoration-color:var(--rule);text-decoration-thickness:1px;text-underline-offset:.22em}
 a:hover{color:var(--accent);text-decoration-color:currentColor}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-.skip{position:absolute;left:-9999px;background:var(--ink);color:var(--paper);padding:.6rem 1rem;z-index:10}
+:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-9999px;background:var(--ink);color:var(--paper);padding:.6rem 1rem;z-index:30}
 .skip:focus{left:1rem;top:1rem}
-.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
 p{max-width:38rem}
 .muted{color:var(--muted)}
+svg.i{width:1.05em;height:1.05em;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-/* topo */
-.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem 1.5rem;padding:1.5rem 0;font-size:.975rem}
-.top .mark{font-size:1.5rem;text-decoration:none}
-.top nav{display:flex;gap:1.75rem}
-.top nav a{text-decoration:none;color:var(--muted)}
-.top nav a:hover{color:var(--ink)}
+/* barra fixa */
+.bar{position:sticky;top:0;z-index:20;background:rgba(13,21,38,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--night-rule);color:var(--on-night)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:3.75rem}
+.bar .mark{font-size:1.45rem;text-decoration:none}
+.bar nav{display:flex;align-items:center;gap:1.75rem;font-size:.975rem}
+.bar nav a{text-decoration:none;color:var(--on-night-muted)}
+.bar nav a:hover{color:#fff}
+.bar .pill{border:1px solid var(--night-rule);border-radius:999px;padding:.35rem 1rem;color:var(--on-night)}
+.bar .pill:hover{border-color:var(--accent-soft);color:#fff}
 
-/* hero: o momento de destaque da página */
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;padding:4.5rem 0 6rem}
-.hero h1{font-size:clamp(3.2rem,8.5vw,6.75rem);font-weight:400;line-height:.98;letter-spacing:-.03em}
-.hero .lead{margin-top:2rem;font-size:1.25rem;line-height:1.55;color:var(--muted)}
-.hero .role{margin-top:1.5rem;font-weight:500}
-.shots{position:relative;aspect-ratio:1/1.05}
-.shot{position:absolute;margin:0;background:var(--white);border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(16,26,43,.35)}
-.shot img{display:block;width:100%;height:auto}
-.shots .s1{width:86%;left:0;top:0}
-.shots .s2{width:78%;right:0;bottom:0}
+/* hero */
+.hero{background:var(--night);color:var(--on-night);position:relative;overflow:hidden;
+  background-image:linear-gradient(var(--night-rule) 1px,transparent 1px),linear-gradient(90deg,var(--night-rule) 1px,transparent 1px);
+  background-size:4.5rem 4.5rem;background-position:-1px -1px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 30% 40%,rgba(13,21,38,.55),var(--night) 75%),linear-gradient(180deg,transparent 70%,var(--night))}
+.hero .wrap{position:relative}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center;padding:5.5rem 0 6.5rem}
+.hero h1{font-size:clamp(3.2rem,8vw,6.5rem);line-height:.98;letter-spacing:-.03em;color:#fff}
+.hero h1 em{display:block;font-style:italic;color:var(--on-night-muted);font-size:.42em;letter-spacing:-.01em;margin-top:1.1rem;line-height:1.2}
+.hero .lead{margin-top:1.75rem;font-size:1.25rem;line-height:1.55;color:var(--on-night-muted)}
+.now{display:inline-flex;align-items:center;gap:.7rem;margin-top:2rem;padding:.65rem 1.1rem;border:1px solid var(--night-rule);border-radius:10px;background:rgba(21,33,58,.7);font-size:.975rem}
+.now b{font-weight:600;color:#fff}
+.now .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent-soft)}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 1.4rem;border-radius:6px;font-weight:500;text-decoration:none;border:1px solid transparent}
+.btn.solid{background:#fff;color:var(--night)}
+.btn.solid:hover{background:var(--accent-soft);color:var(--night)}
+.btn.line{border-color:var(--night-rule);color:var(--on-night)}
+.btn.line:hover{border-color:var(--accent-soft);color:#fff}
+.shots{position:relative;aspect-ratio:1/1.02}
+.win{position:absolute;margin:0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08)}
+.win figcaption{display:flex;gap:.35rem;padding:.55rem .75rem;background:#E3E6EC}
+.win figcaption i{width:.55rem;height:.55rem;border-radius:50%;background:#B8BFCC}
+.win img{display:block;width:100%;height:auto}
+.shots .w1{width:88%;left:0;top:0}
+.shots .w2{width:78%;right:0;bottom:0}
 
-/* seções */
-section{padding:5rem 0;border-top:1px solid var(--rule)}
-h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:3rem}
-.row{display:grid;grid-template-columns:14rem 1fr;gap:1rem 3rem;padding:2rem 0;border-top:1px solid var(--rule)}
-.row:first-of-type{border-top:0;padding-top:0}
-.row h3{font-size:1.6rem}
-.row .sub{color:var(--muted);font-size:.975rem;margin-top:.35rem}
+/* seções claras */
+section{padding:6rem 0}
+.head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 2rem;margin-bottom:3rem}
+h2{font-size:clamp(2rem,4vw,2.75rem)}
+.head p{color:var(--muted);max-width:28rem}
 
-/* destaques com tela */
-.feature{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;padding:2rem 0}
-.feature+.feature{border-top:1px solid var(--rule)}
-.feature.rev{grid-template-columns:.85fr 1.15fr}
-.feature.rev .shot{order:2}
-.feature .shot{position:relative}
-.feature h3{font-size:clamp(1.7rem,3vw,2.2rem)}
-.feature .meta{color:var(--muted);font-size:.975rem;margin-bottom:.6rem}
-.feature p.desc{margin:1rem 0 1.5rem}
-.link{font-weight:600;color:var(--accent)}
+/* empresas */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:2.25rem;display:flex;flex-direction:column;gap:1rem;box-shadow:0 1px 2px rgba(16,26,43,.04)}
+.card h3{font-size:1.75rem}
+.card .sub{color:var(--accent);font-weight:600;font-size:.975rem}
+.card .tags{margin-top:auto;padding-top:.5rem}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;padding:0}
+.tags li{border:1px solid var(--rule);border-radius:999px;padding:.2rem .75rem;font-size:.875rem;color:var(--muted);background:var(--paper)}
 
-/* sistemas privados */
-.dl{display:grid;grid-template-columns:8.5rem 1fr;gap:.55rem 1.5rem;margin-top:1.25rem;font-size:.975rem}
-.dl dt{color:var(--muted)}
-.dl dd{max-width:36rem}
-.nota{margin-top:1.5rem;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--accent);font-size:.925rem;color:var(--muted);max-width:36rem}
-.nota strong{color:var(--ink);font-weight:600}
+
+/* trajetória */
+.tl{list-style:none;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:12.35rem;top:.6rem;bottom:.6rem;width:1px;background:var(--rule)}
+.tl>li{display:grid;grid-template-columns:11.5rem 1fr;gap:0 2.5rem;padding:0 0 2.5rem;position:relative}
+.tl>li::before{content:"";position:absolute;left:11.95rem;top:.55rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+.tl>li:first-child::before{background:var(--accent)}
+.tl .when{color:var(--muted);font-size:.95rem;padding-top:.3rem}
+.tl h3{font-size:1.6rem}
+.tl .sub{color:var(--accent);font-weight:600;font-size:.975rem;margin:.2rem 0 .6rem}
+.tl .tags{margin-top:.9rem}
+.edu{margin-top:1rem;padding:1.5rem 1.75rem;border:1px solid var(--rule);border-radius:14px;background:var(--panel);display:grid;grid-template-columns:11.5rem 1fr;gap:.5rem 2.5rem;align-items:baseline}
+.edu h3{font-size:1.4rem}
+.edu p{max-width:none}
+
+/* projetos publicados */
+.showcase{background:var(--tint);border-radius:18px;padding:3rem;display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center}
+.showcase+.showcase{margin-top:1.5rem}
+.showcase.rev{grid-template-columns:.8fr 1.2fr}
+.showcase.rev .win{order:2}
+.showcase .win{position:relative;box-shadow:0 24px 50px -24px rgba(16,26,43,.45),0 0 0 1px rgba(16,26,43,.06)}
+.showcase h3{font-size:clamp(1.8rem,3vw,2.3rem)}
+.showcase .meta{color:var(--muted);font-size:.95rem;margin-bottom:.6rem}
+.showcase p.desc{margin:1rem 0 1.75rem}
+.link{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;color:var(--accent);text-decoration:none}
+.link:hover{color:var(--ink)}
+
+/* sistemas privados (faixa escura) */
+.dark{background:var(--night);color:var(--on-night)}
+.dark h2{color:#fff}
+.dark .head p{color:var(--on-night-muted)}
+.sys{display:grid;grid-template-columns:1fr;gap:1.5rem}
+.panel{background:var(--night-2);border:1px solid var(--night-rule);border-radius:14px;padding:2.25rem;display:flex;flex-direction:column}
+.panel header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.panel h3{font-size:1.9rem;color:#fff}
+.panel .sub{color:var(--on-night-muted);font-size:.975rem;margin-top:.3rem}
+.lock{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--night-rule);border-radius:999px;padding:.25rem .75rem;font-size:.85rem;color:var(--on-night-muted);white-space:nowrap}
+.panel p.what{margin-top:1.25rem;color:var(--on-night)}
+.dl{display:grid;grid-template-columns:8.5rem 1fr 8.5rem 1fr;gap:1.1rem 1.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--night-rule);font-size:.95rem}
+.dl dt{color:var(--on-night-muted)}
+.dl dd{color:var(--on-night)}
+.nota{margin-top:auto;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--accent-soft);font-size:.9rem;color:var(--on-night-muted);max-width:none}
+.dl+.nota{margin-top:1.75rem}
+.nota strong{color:#fff;font-weight:600}
+.nota a{color:var(--on-night);text-decoration-color:var(--night-rule)}
+.nota a:hover{color:#fff}
 
 /* mais trabalhos */
-.sub-h{font-size:1.5rem;margin:4rem 0 1.25rem}
-.list{list-style:none;padding:0}
-.list li{display:grid;grid-template-columns:14rem 1fr;gap:.5rem 3rem;padding:1.4rem 0;border-top:1px solid var(--rule)}
-.list li:last-child{border-bottom:1px solid var(--rule)}
-.list h3{font-size:1.3rem}
-.list .meta{color:var(--muted);font-size:.925rem;margin-top:.2rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.tile{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:1.75rem;display:flex;flex-direction:column;gap:.6rem}
+.tile h3{font-size:1.4rem}
+.tile h3 a{text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+.tile .meta{color:var(--muted);font-size:.925rem}
+.tile .tags{margin-top:auto;padding-top:.6rem}
+.sub-h{font-size:1.6rem;margin:3.5rem 0 .75rem}
+.sub-h:first-of-type{margin-top:0}
+.grp{margin-bottom:1.5rem}
 
 /* stack */
-.stack{max-width:52rem}
-.stack div{display:grid;grid-template-columns:14rem 1fr;gap:.5rem 3rem;padding:1.15rem 0;border-top:1px solid var(--rule)}
-.stack div:last-child{border-bottom:1px solid var(--rule)}
-.stack dt{font-family:"Newsreader",Georgia,serif;font-size:1.25rem}
-.stack dd{color:var(--muted)}
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:2rem}
+.stack h3{font-size:1.3rem;padding-bottom:.8rem;margin-bottom:1rem;border-bottom:1px solid var(--rule)}
+.stack ul{list-style:none;padding:0;display:grid;gap:.4rem;color:var(--muted)}
 
 /* contato */
-.contact h2{margin-bottom:1.25rem}
-.contact p{margin-bottom:1.75rem}
-.btn{display:inline-block;background:var(--ink);color:var(--paper);padding:.8rem 1.5rem;border-radius:4px;font-weight:500;text-decoration:none}
-.btn:hover{background:var(--accent);color:var(--white)}
-footer{padding:2.5rem 0 3rem;border-top:1px solid var(--rule);color:var(--muted);font-size:.9rem}
+.contact{background:var(--night);color:var(--on-night);padding:6rem 0}
+.contact .inner{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.contact h2{color:#fff;margin-bottom:1.25rem}
+.contact p{color:var(--on-night-muted)}
+.links{display:grid;gap:.85rem}
+.links a{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.4rem;border:1px solid var(--night-rule);border-radius:12px;background:var(--night-2);text-decoration:none}
+.links a:hover{border-color:var(--accent-soft);color:#fff}
+.links small{display:block;color:var(--on-night-muted);font-size:.875rem}
+.links span.l{display:flex;align-items:center;gap:.9rem}
+.links svg.i{width:1.4rem;height:1.4rem}
+footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid var(--night-rule);padding:1.75rem 0;font-size:.9rem}
 
-@media(max-width:820px){
-  .hero-grid,.feature,.feature.rev,.row,.list li,.stack div{grid-template-columns:1fr}
-  .hero-grid{padding:2.5rem 0 4rem;gap:2.5rem}
-  .feature.rev .shot{order:0}
+@media(max-width:900px){
+  .hero-grid,.showcase,.showcase.rev,.cards,.sys,.grid,.contact .inner,.tl>li,.edu{grid-template-columns:1fr}
+  .tl::before{left:.35rem}.tl>li{padding-left:1.75rem}.tl>li::before{left:0}.tl .when{padding-top:0;margin-bottom:.35rem}
+  .stack{grid-template-columns:1fr 1fr}
+  .dl{grid-template-columns:8rem 1fr}
+  .hero-grid{padding:3rem 0 4rem;gap:2.5rem}
+  .showcase{padding:1.5rem}
+  .showcase.rev .win{order:0}
   .shots{aspect-ratio:auto;display:grid;gap:1rem}
-  .shots .shot{position:relative;width:100%}
-  .dl{grid-template-columns:1fr;gap:.1rem}
-  .dl dd{margin-bottom:.6rem}
-  section{padding:3.5rem 0}
-  .top nav{gap:1.25rem}
+  .shots .win{position:relative;width:100%}
+  section{padding:4rem 0}
+  .bar nav a:not(.pill){display:none}
 }
+@media(max-width:520px){.stack{grid-template-columns:1fr}.dl{grid-template-columns:1fr;gap:.15rem}.dl dd{margin-bottom:.7rem}}
 </style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
+<header class="bar"><div class="wrap">
+  <a class="mark serif" href="#" aria-label="Robson Kretzmann, início">RK</a>
+  <nav aria-label="Seções">
+    <a href="#empresas">Trajetória</a><a href="#projetos">Projetos</a><a href="#sistemas">Sistemas privados</a><a href="#stack">Stack</a>
+    <a class="pill" href="#contato">Contato</a>
+  </nav>
+</div></header>
+
 <div class="hero">
-  <div class="wrap">
-    <header class="top">
-      <a class="mark serif" href="#" aria-label="Robson Kretzmann, início">RK</a>
-      <nav aria-label="Seções"><a href="#empresas">Empresas</a><a href="#projetos">Projetos</a><a href="#stack">Stack</a><a href="#contato">Contato</a></nav>
-    </header>
-    <div class="hero-grid">
-      <div>
-        <h1>Robson Kretzmann</h1>
-        <p class="lead">Desenvolvedor full stack. Projeto, construo e coloco sistemas em produção, do banco de dados à tela.</p>
-        <p class="role">Sócio e co-fundador da Syncfy</p>
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Robson Kretzmann<em>Diretor de tecnologia e desenvolvedor full stack</em></h1>
+      <p class="lead">Projeto, construo e coloco sistemas em produção, do banco de dados à tela.</p>
+      <p class="now"><span class="dot" aria-hidden="true"></span><span>Diretor de tecnologia, sócio e co-fundador da <b>Syncfy</b></span></p>
+      <div class="actions">
+        <a class="btn solid" href="#projetos">Ver projetos</a>
+        <a class="btn line" href="https://www.linkedin.com/in/robson-kretzmann-b273552b3/">LinkedIn</a>
       </div>
-      <div class="shots" aria-hidden="true">
-        <figure class="shot s1"><img src="img/rifas-dengo.jpg" width="1100" height="687" alt=""></figure>
-        <figure class="shot s2"><img src="img/happy-fund-forge.jpg" width="1100" height="687" alt=""></figure>
-      </div>
+    </div>
+    <div class="shots" aria-hidden="true">
+      <figure class="win w1"><figcaption><i></i><i></i><i></i></figcaption><img src="img/rifas-dengo.jpg" width="1100" height="687" alt=""></figure>
+      <figure class="win w2"><figcaption><i></i><i></i><i></i></figcaption><img src="img/happy-fund-forge.jpg" width="1100" height="687" alt=""></figure>
     </div>
   </div>
 </div>
 
 <main id="conteudo">
   <section id="empresas"><div class="wrap">
-    <h2>Onde trabalho</h2>
-    <div class="row">
-      <div>
-        <h3><a href="https://www.syncfy.com.br/">Syncfy</a></h3>
-        <p class="sub">Sócio e co-fundador</p>
-      </div>
-      <div>
-        <p>Agentes de IA para imobiliárias. Coletam e validam documentos pelo WhatsApp, analisam o risco da locação e geram a minuta do contrato num fluxo só.</p>
-        <p class="muted" style="margin-top:.75rem">Documentos, análise de risco e contratos.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div>
-        <h3>R Soluções Tecnológicas</h3>
-        <p class="sub">Desenvolvedor</p>
-      </div>
-      <div>
-        <p>Sistemas sob medida e integrações para empresas, de ERP e Active Directory a e-commerce, controle de horas e sites institucionais.</p>
-        <p class="muted" style="margin-top:.75rem">ERP, Active Directory e e-commerce.</p>
-      </div>
+    <div class="head"><h2>Trajetória</h2><p>Do desenvolvimento de integrações industriais à direção de tecnologia de um produto próprio.</p></div>
+    <ol class="tl">
+      <li>
+        <p class="when">abr. 2026 até hoje</p>
+        <div>
+          <h3><a href="https://www.syncfy.com.br/">Syncfy</a></h3>
+          <p class="sub">Diretor de tecnologia, sócio e co-fundador</p>
+          <p>Agentes de IA para imobiliárias. Coletam e validam documentos pelo WhatsApp, analisam o risco da locação e geram a minuta do contrato num fluxo só.</p>
+          <ul class="tags"><li>ASP.NET Core</li><li>Vue.js</li><li>WhatsApp</li><li>IA</li><li>Kubernetes (AKS)</li><li>Grafana</li><li>Sentry</li></ul>
+        </div>
+      </li>
+      <li>
+        <p class="when">abr. 2022 a mar. 2026</p>
+        <div>
+          <h3>Grupo OLX</h3>
+          <p class="sub">Senior Software Engineer, remoto</p>
+          <ul class="tags"><li>ASP.NET Core</li><li>Vue.js</li></ul>
+        </div>
+      </li>
+      <li>
+        <p class="when">ago. 2021 a abr. 2022</p>
+        <div>
+          <h3>Sohtech</h3>
+          <p class="sub">Software Engineer, remoto</p>
+          <p>Desenvolvimento do produto da empresa, com suporte e novas funcionalidades.</p>
+        </div>
+      </li>
+      <li>
+        <p class="when">fev. 2014 a jun. 2021</p>
+        <div>
+          <h3>TMSA, Tecnologia em Movimentação</h3>
+          <p class="sub">Analista de desenvolvimento de sistemas</p>
+          <p>Integrações com Senior Sistemas, Active Directory e Dynamics AX, o Mova para gestão de melhorias e projetos, ferramentas internas de controle de qualidade, coletores de dados em Android para almoxarifado e expedição, e manutenção de sistemas legados.</p>
+          <ul class="tags"><li>Senior Sistemas</li><li>Dynamics AX</li><li>Active Directory</li><li>Mova</li><li>Android</li></ul>
+        </div>
+      </li>
+      <li>
+        <p class="when">Em paralelo</p>
+        <div>
+          <h3>R Soluções Tecnológicas</h3>
+          <p class="sub">Desenvolvedor</p>
+          <p>Sistemas sob medida e integrações para empresas, de ERP e Active Directory a e-commerce, controle de horas e sites institucionais.</p>
+          <ul class="tags"><li>ERP</li><li>Active Directory</li><li>E-commerce</li></ul>
+        </div>
+      </li>
+    </ol>
+    <div class="edu">
+      <h3>Formação</h3>
+      <p><strong>SENAI-RS</strong>, Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas. Em andamento desde fev. 2019.</p>
     </div>
   </div></section>
 
-  <section id="projetos"><div class="wrap">
-    <h2>Projetos</h2>
+  <section id="projetos" style="padding-top:0"><div class="wrap">
+    <div class="head"><h2>Projetos no ar</h2><p>Dois produtos publicados, com demonstração aberta.</p></div>
 
-    <div class="feature">
-      <figure class="shot"><img src="img/rifas-dengo.jpg" width="1100" height="687" alt="Tela inicial do Rifas Dengo, com a chamada 'Escolha seus números e concorra' e a lista de rifas abertas" loading="lazy"></figure>
+    <article class="showcase">
+      <figure class="win"><figcaption><i></i><i></i><i></i></figcaption><img src="img/rifas-dengo.jpg" width="1100" height="687" alt="Tela inicial do Rifas Dengo, com a chamada 'Escolha seus números e concorra' e a lista de rifas abertas" loading="lazy"></figure>
       <div>
         <p class="meta">TypeScript, Vercel</p>
         <h3>Rifas Dengo</h3>
         <p class="desc">Rifas online para os gatinhos. A pessoa escolhe os números, paga via Pix e envia o comprovante. A tela inicial lista as rifas abertas.</p>
-        <a class="link" href="https://rifas-dengo.vercel.app">Ver no ar</a>
+        <a class="link" href="https://rifas-dengo.vercel.app">Ver no ar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
-    </div>
+    </article>
 
-    <div class="feature rev">
-      <figure class="shot"><img src="img/happy-fund-forge.jpg" width="1100" height="687" alt="Vakinha da Gatolândia, com barras de meta e de valor arrecadado e a seção 'Quero doar'" loading="lazy"></figure>
+    <article class="showcase rev">
+      <figure class="win"><figcaption><i></i><i></i><i></i></figcaption><img src="img/happy-fund-forge.jpg" width="1100" height="687" alt="Vakinha da Gatolândia, com barras de meta e de valor arrecadado e a seção 'Quero doar'" loading="lazy"></figure>
       <div>
         <p class="meta">TypeScript, Vercel</p>
         <h3>Vakinha da Gatolândia</h3>
         <p class="desc">Vaquinha online com barras de meta e de arrecadação. A doação sai por QR Code Pix, com o comprovante anexado.</p>
-        <a class="link" href="https://happy-fund-forge.vercel.app">Ver no ar</a>
+        <a class="link" href="https://happy-fund-forge.vercel.app">Ver no ar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
-    </div>
+    </article>
+  </div></section>
 
-    <h3 class="sub-h">Sistemas privados</h3>
-
-    <div class="row">
-      <div>
-        <h3>Syncfy</h3>
-        <p class="sub">CRM imobiliário com IA</p>
-      </div>
-      <div>
-        <p>Plataforma para imobiliárias que reúne gestão de leads e imóveis, atendimento por WhatsApp e análise de documentos com IA.</p>
+  <section id="sistemas" class="dark"><div class="wrap">
+    <div class="head"><h2>Sistemas privados</h2><p>Em produção, com código e dados fechados. Descrevo a arquitetura, sem expor informação de clientes.</p></div>
+    <div class="sys">
+      <article class="panel">
+        <header>
+          <div><h3>Syncfy</h3><p class="sub">CRM imobiliário com IA</p></div>
+          <span class="lock"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Privado</span>
+        </header>
+        <p class="what">Plataforma para imobiliárias que reúne gestão de leads e imóveis, atendimento por WhatsApp e análise de documentos com IA.</p>
         <dl class="dl">
-          <dt>API e workers</dt><dd>ASP.NET Core em .NET 10, Entity Framework Core e Dapper sobre SQL Server. Workers independentes para WhatsApp, documentos, importação de imóveis e processamento de IA, com filas no Azure Storage.</dd>
-          <dt>Tempo real</dt><dd>SignalR e Azure Web PubSub para o chat.</dd>
+          <dt>API e workers</dt><dd>ASP.NET Core em .NET 10, Entity Framework Core e Dapper sobre SQL Server. Workers independentes para documentos, importação de imóveis, geolocalização por CEP e IA, com filas no Azure Storage. Chat em tempo real com SignalR e Azure Web PubSub.</dd>
+          <dt>WhatsApp</dt><dd>Integrações nativas com a WhatsApp Cloud API da Meta, a Twilio e a Z-API. Um webhook dedicado só recebe e enfileira as mensagens, e workers cuidam dos fluxos, dos templates e do envio.</dd>
+          <dt>IA</dt><dd>OpenAI e Google Gemini para ler documentos e analisar o risco da locação, com um worker próprio para reprocessar.</dd>
+          <dt>Infraestrutura</dt><dd>Contêineres Docker em Kubernetes (AKS), com imagens no Azure Container Registry, ingress NGINX e certificados Let's Encrypt. Ambientes de homologação e produção, com deploy por GitHub Actions.</dd>
+          <dt>Observabilidade</dt><dd>Métricas com Prometheus e painéis no Grafana para API, banco, filas, workers e WhatsApp. Logs com Grafana Loki, erros no Sentry e Application Insights nas Functions.</dd>
+          <dt>Dados</dt><dd>SQL Server, MongoDB, Redis e RabbitMQ, com Azure Storage (Blob, Queue e Table) e Data Lake.</dd>
+          <dt>Documentos e e-mail</dt><dd>iText e DocX para gerar contratos em PDF e Word, e SendGrid para e-mail.</dd>
+          <dt>Qualidade</dt><dd>xUnit, NUnit, Moq e FluentAssertions nos testes, e k6 nos testes de carga.</dd>
           <dt>Web</dt><dd>Vue 3 com módulos de documentos, leads, chat e gerenciador de anúncios, em português, inglês e espanhol.</dd>
           <dt>BackOffice</dt><dd>Painel administrativo em ASP.NET Core e Vue 3, com fluxos de WhatsApp, réguas de notificação e prompts.</dd>
-          <dt>Mobile</dt><dd>App em Expo e React Native.</dd>
-          <dt>Pacote próprio</dt><dd>Syncfy.Triggers: workers de fila e timer por atributos, no estilo Azure Functions, sem depender do runtime de Functions.</dd>
+          <dt>Mobile</dt><dd>App em Expo e React Native, com build por EAS e Fastlane.</dd>
+          <dt>Automação</dt><dd>Azure Functions para tarefas auxiliares e o pacote próprio Syncfy.Triggers: workers de fila e timer por atributos, no estilo Functions, sem depender do runtime.</dd>
         </dl>
         <p class="nota"><strong>Aviso.</strong> O código, as telas e os dados do Syncfy são privados e ficam fora de repositórios públicos, por isso não há demonstração nem capturas de tela. Esta descrição resume a arquitetura e não substitui o que o produto faz hoje; para ver o produto, visite o <a href="https://www.syncfy.com.br/">site da Syncfy</a>.</p>
-      </div>
-    </div>
+      </article>
 
-    <div class="row">
-      <div>
-        <h3>Chatterie Vet</h3>
-        <p class="sub">Gestão de clínica veterinária</p>
-      </div>
-      <div>
-        <p>Sistema para a rotina de uma clínica veterinária, da agenda e do prontuário ao financeiro, com portal para o tutor acompanhar o pet.</p>
+      <article class="panel">
+        <header>
+          <div><h3>Chatterie Vet</h3><p class="sub">Gestão de clínica veterinária</p></div>
+          <span class="lock"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Privado</span>
+        </header>
+        <p class="what">Sistema para a rotina de uma clínica veterinária, da agenda e do prontuário ao financeiro, com portal para o tutor acompanhar o pet.</p>
         <dl class="dl">
           <dt>Clínica</dt><dd>Agenda, pacientes, prontuários, histórico de saúde, internações com medicação, alimentação e evolução, e controle diário dos veterinários.</dd>
           <dt>Comercial</dt><dd>Orçamentos, vendas, estoque, pagamentos, comissões, notas fiscais e relatórios.</dd>
@@ -216,44 +327,144 @@ footer{padding:2.5rem 0 3rem;border-top:1px solid var(--rule);color:var(--muted)
           <dt>Mobile</dt><dd>App em Expo e React Native, com login por biometria e notificações push.</dd>
         </dl>
         <p class="nota"><strong>Aviso.</strong> O Chatterie Vet é um sistema privado, sem demonstração pública. Não mostro capturas de tela porque elas expõem dados de clínica, tutores e pacientes. A descrição resume os módulos que existem no código.</p>
-      </div>
+      </article>
+    </div>
+  </div></section>
+
+  <section id="mais"><div class="wrap">
+    <div class="head"><h2>Mais trabalhos</h2></div>
+
+    <h3 class="sub-h">Sistemas corporativos</h3>
+    <p class="muted grp">Sistemas de uso interno que construí na TMSA e em outros trabalhos. Os códigos são privados e não mostro telas nem dados das empresas.</p>
+    <div class="grid">
+      <article class="tile">
+        <h3>Mova</h3>
+        <p class="meta">PHP, DataTables. Código privado.</p>
+        <p>Gestão de melhorias e projetos da TMSA. A ideia é registrada, segue para análise e aprovação, tem a eficácia acompanhada e, nos projetos, passa por auditoria. Inclui cadastros de áreas, setores, grupos, focos e valores, além de usuários e permissões.</p>
+      </article>
+      <article class="tile">
+        <h3>Mova, nova versão</h3>
+        <p class="meta">Vue 3, Vite, Azure Static Web Apps. Código privado.</p>
+        <p>Reescrita do Mova em Vue 3, com login, painel e o fluxo de listar e incluir melhorias, e pipeline de deploy para o Azure Static Web Apps.</p>
+      </article>
+      <article class="tile">
+        <h3>Integração Senior e Active Directory</h3>
+        <p class="meta">.NET Framework, Windows Service, LDAP. Código privado.</p>
+        <p>Serviço do Windows que a cada 15 minutos lê colaboradores, filiais, centros de custo e horários do Senior Sistemas e atualiza o Active Directory e a base do portal, mantendo a relação de chefia, com log e registro de exceções.</p>
+      </article>
+      <article class="tile">
+        <h3>Apontador de horas</h3>
+        <p class="meta">WPF, .NET. Código privado.</p>
+        <p>Agente desktop para apontamento de horas.</p>
+      </article>
+      <article class="tile">
+        <h3>Conector Tiny</h3>
+        <p class="meta">PHP. Código privado.</p>
+        <p>Conector em PHP para integrar sistemas ao ERP Tiny.</p>
+      </article>
+      <article class="tile">
+        <h3>Consulta de preço</h3>
+        <p class="meta">Delphi FireMonkey, Android. Código privado.</p>
+        <p>Aplicativo Android para consultar o preço de produtos.</p>
+      </article>
+      <article class="tile">
+        <h3>Sistema de indicadores</h3>
+        <p class="meta">PHP. Código privado.</p>
+        <p>Sistema web para acompanhar indicadores.</p>
+      </article>
+      <article class="tile">
+        <h3>Envio de webhook ao Telegram</h3>
+        <p class="meta">.NET. Código privado.</p>
+        <p>API em .NET que envia mensagens ao Telegram por webhook.</p>
+      </article>
     </div>
 
-    <h3 class="sub-h">Mais trabalhos</h3>
-    <ul class="list">
-      <li>
-        <div><h3><a href="https://lead-scout-web-seven.vercel.app">Lead Scout</a></h3><p class="meta">Next.js, Supabase, extensão Chrome</p></div>
+    <h3 class="sub-h">Produtos e ferramentas</h3>
+    <div class="grid">
+      <article class="tile">
+        <h3><a href="https://lead-scout-web-seven.vercel.app">Lead Scout <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">Next.js, Supabase, extensão Chrome</p>
         <p>Inteligência comercial para vendas B2B. Uma extensão do Chrome captura leads e o sistema web os enriquece.</p>
-      </li>
-      <li>
-        <div><h3><a href="https://legal-docs-saas-alpha.vercel.app">Documentos legais</a></h3><p class="meta">Next.js 16, Supabase, Mercado Pago</p></div>
+      </article>
+      <article class="tile">
+        <h3><a href="https://legal-docs-saas-alpha.vercel.app">Documentos legais <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">Next.js 16, Supabase, Mercado Pago</p>
         <p>Gera e publica a Política de Privacidade e os Termos de Uso de um site a partir de um questionário. A publicação consome créditos comprados pelo Mercado Pago.</p>
-      </li>
-      <li>
-        <div><h3>Leads de imobiliárias</h3><p class="meta">Node.js, Docker, BrasilAPI</p></div>
+      </article>
+      <article class="tile">
+        <h3>Leads de imobiliárias</h3>
+        <p class="meta">Node.js, Docker, BrasilAPI</p>
         <p>Pipeline de quatro etapas que coleta imobiliárias, encontra o CNPJ, enriquece os dados e entrega uma planilha pronta. Cada etapa grava um checkpoint e pode ser retomada.</p>
-      </li>
-      <li>
-        <div><h3>Precificador</h3><p class="meta">.NET 10, Vue 3, EF Core, JWT. Código privado.</p></div>
+      </article>
+      <article class="tile">
+        <h3>Precificador</h3>
+        <p class="meta">.NET 10, Vue 3, EF Core, JWT. Código privado.</p>
         <p>Precificação, estoque e cadastro de produtos. Calcula o preço de venda pela margem e simula valores sem salvar.</p>
-      </li>
-    </ul>
+      </article>
+      <article class="tile">
+        <h3>Dengo Cat Shop</h3>
+        <p class="meta">.NET 10, SQL Server, Docker. Código privado.</p>
+        <p>Back-end de uma loja de produtos para gatos, com API, rotinas diárias em workers e testes de integração com Testcontainers. Atende o painel administrativo com PDV e o app da loja.</p>
+      </article>
+      <article class="tile">
+        <h3>Monitor do Guaíba</h3>
+        <p class="meta">Node.js, Docker, Kubernetes, Telegram. Código privado.</p>
+        <p>Acompanha a cota do Guaíba na estação do Cais Mauá, a partir de dados públicos do estado, e avisa por Telegram ao cruzar 2,0 m, 2,5 m e 3,0 m, além de um boletim a cada hora.</p>
+      </article>
+    </div>
+
+    <h3 class="sub-h">Estudos públicos</h3>
+    <p class="muted grp">Repositórios abertos no GitHub, feitos para estudar e experimentar.</p>
+    <div class="grid">
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/webSocketAPI.NET">WebSocket API em .NET <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">C#</p>
+        <p>API de WebSocket organizada em camadas de domínio, serviço, infraestrutura e API.</p>
+      </article>
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/websocketAPIKotlin">WebSocket API em Kotlin <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">Kotlin, Maven</p>
+        <p>API de WebSocket em Kotlin.</p>
+      </article>
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/mercado-livro">Mercado Livro <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">Kotlin, Gradle</p>
+        <p>API em Kotlin construída com Gradle.</p>
+      </article>
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/api-nest">API em NestJS <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">TypeScript, NestJS, Docker</p>
+        <p>API em NestJS com Dockerfile e pipeline de CI.</p>
+      </article>
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/AspireApp01">Aspire <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">.NET Aspire</p>
+        <p>Solução com .NET Aspire, serviço de API e front web.</p>
+      </article>
+    </div>
   </div></section>
 
-  <section id="stack"><div class="wrap">
-    <h2>O que eu uso</h2>
-    <dl class="stack">
-      <div><dt>Back-end</dt><dd>C#, .NET, ASP.NET Core, Node.js, NestJS, PHP, Kotlin, Go, Delphi/Pascal</dd></div>
-      <div><dt>Front-end</dt><dd>TypeScript, JavaScript, React, Next.js, Vue, HTML, CSS, Sass, Three.js</dd></div>
-      <div><dt>Dados e infraestrutura</dt><dd>SQL Server, PostgreSQL, Supabase, Docker, Vercel, GitHub Actions, Git</dd></div>
-      <div><dt>Integrações</dt><dd>Mercado Pago, Pix, Telegram, ERP Tiny, Active Directory</dd></div>
-    </dl>
+  <section id="stack" style="padding-top:0"><div class="wrap">
+    <div class="head"><h2>O que eu uso</h2></div>
+    <div class="stack">
+      <div><h3>Back-end</h3><ul><li>C#, .NET, ASP.NET Core</li><li>Node.js, NestJS</li><li>PHP, Kotlin, Go</li><li>Delphi/Pascal</li></ul></div>
+      <div><h3>Front-end</h3><ul><li>TypeScript, JavaScript</li><li>React, Next.js, Vue</li><li>Expo, React Native</li><li>HTML, CSS, Sass, Three.js</li></ul></div>
+      <div><h3>Dados e mensageria</h3><ul><li>SQL Server, PostgreSQL</li><li>MongoDB, Redis</li><li>RabbitMQ, Azure Queue</li><li>Supabase</li></ul></div>
+      <div><h3>Nuvem e entrega</h3><ul><li>Azure, Kubernetes (AKS)</li><li>Docker, Vercel</li><li>GitHub Actions, Git</li><li>NGINX, Let's Encrypt</li></ul></div>
+      <div><h3>Observabilidade</h3><ul><li>Grafana, Prometheus, Loki</li><li>Sentry</li><li>Application Insights</li><li>k6</li></ul></div>
+      <div><h3>Integrações</h3><ul><li>WhatsApp (Meta, Twilio, Z-API)</li><li>OpenAI, Gemini</li><li>Mercado Pago, Pix</li><li>Telegram, SendGrid</li><li>ERP Tiny, Senior, Active Directory</li></ul></div>
+    </div>
   </div></section>
 
-  <section id="contato" class="contact"><div class="wrap">
-    <h2>Vamos conversar</h2>
-    <p>A maior parte do meu código está em repositórios privados. O que posso mostrar está no GitHub.</p>
-    <a class="btn" href="https://github.com/robsonkretzmannsilva">github.com/robsonkretzmannsilva</a>
+  <section id="contato" class="contact"><div class="wrap inner">
+    <div>
+      <h2>Vamos conversar</h2>
+      <p>A maior parte do meu código está em repositórios privados. O que posso mostrar está no GitHub, e a trajetória completa está no LinkedIn.</p>
+    </div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/robson-kretzmann-b273552b3/"><span class="l"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v10M6 5.5v.01M11 19V9m0 4a4 4 0 0 1 8 0v6"/></svg><span>LinkedIn<small>Trajetória e experiência</small></span></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <a href="https://github.com/robsonkretzmannsilva"><span class="l"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg><span>GitHub<small>github.com/robsonkretzmannsilva</small></span></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
   </div></section>
 </main>
 
