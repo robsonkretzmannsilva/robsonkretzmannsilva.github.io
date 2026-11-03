@@ -115,6 +115,8 @@ h2{font-size:clamp(2rem,4vw,2.75rem)}
 .tl .sub{color:var(--accent);font-weight:600;font-size:.975rem;margin:.2rem 0 .6rem}
 .tl .tags{margin-top:.9rem}
 .tl p+p{margin-top:.75rem}
+.skills{display:grid;grid-template-columns:9rem 1fr;gap:.45rem 1.25rem;margin-top:1.1rem;font-size:.925rem}
+.skills dt{color:var(--muted)}
 .edu{margin-top:1rem;padding:1.5rem 1.75rem;border:1px solid var(--rule);border-radius:14px;background:var(--panel);display:grid;grid-template-columns:11.5rem 1fr;gap:.5rem 2.5rem;align-items:baseline}
 .edu h3{font-size:1.4rem}
 .edu p{max-width:none}
@@ -194,7 +196,7 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
   section{padding:4rem 0}
   .bar nav a:not(.pill){display:none}
 }
-@media(max-width:520px){.stack{grid-template-columns:1fr}.dl{grid-template-columns:1fr;gap:.15rem}.dl dd{margin-bottom:.7rem}}
+@media(max-width:520px){.skills{grid-template-columns:1fr;gap:.1rem}.skills dd{margin-bottom:.6rem}.stack{grid-template-columns:1fr}.dl{grid-template-columns:1fr;gap:.15rem}.dl dd{margin-bottom:.7rem}}
 </style>
 </head>
 <body>
@@ -264,7 +266,15 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
           <p>Atuação na equipe de Leads e Gestão de Leads da OLX, no desenvolvimento, na manutenção e na evolução das soluções responsáveis por todo o ciclo de vida dos leads gerados na plataforma.</p>
           <p>Desenvolvimento de funcionalidades e serviços de captação, processamento, qualificação, distribuição e gestão de leads, com regras de negócio e integrações entre sistemas.</p>
           <p>Construção e evolução de APIs e serviços, buscando disponibilidade, performance, escalabilidade e confiabilidade em uma plataforma de grande porte, com alto volume de operações.</p>
-          <ul class="tags"><li>ASP.NET Core</li><li>Vue.js</li><li>APIs</li><li>Gestão de leads</li><li>Integrações</li></ul>
+          <dl class="skills">
+            <dt>Plataforma .NET</dt><dd>C#, ASP.NET Core, ASP.NET, .NET Core, .NET Framework</dd>
+            <dt>Front-end</dt><dd>Vue.js, React.js, JavaScript, aplicativos web</dd>
+            <dt>Back-end</dt><dd>Node.js, Kotlin, Java, desenvolvimento de back-end</dd>
+            <dt>AWS</dt><dd>Amazon Web Services, S3, SQS, RDS, Elastic Beanstalk</dd>
+            <dt>Azure</dt><dd>Azure Functions, Windows Azure, Azure DevOps, SQL Azure</dd>
+            <dt>Dados</dt><dd>PostgreSQL, SQL</dd>
+            <dt>Ferramentas</dt><dd>Git, Microsoft Visual Studio</dd>
+          </dl>
         </div>
       </li>
       <li>
@@ -485,10 +495,10 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
   <section id="stack" style="padding-top:0"><div class="wrap">
     <div class="head"><h2>O que eu uso</h2></div>
     <div class="stack">
-      <div><h3>Back-end</h3><ul><li>C#, .NET, ASP.NET Core</li><li>Node.js, NestJS</li><li>PHP, Kotlin, Go</li><li>Delphi/Pascal</li></ul></div>
+      <div><h3>Back-end</h3><ul><li>C#, .NET, ASP.NET Core</li><li>Node.js, NestJS</li><li>Java, Kotlin, PHP, Go</li><li>Delphi/Pascal</li></ul></div>
       <div><h3>Front-end</h3><ul><li>TypeScript, JavaScript</li><li>React, Next.js, Vue</li><li>Expo, React Native</li><li>HTML, CSS, Sass, Three.js</li></ul></div>
       <div><h3>Dados e mensageria</h3><ul><li>SQL Server, PostgreSQL</li><li>MongoDB, Redis</li><li>RabbitMQ, Azure Queue</li><li>Supabase</li></ul></div>
-      <div><h3>Nuvem e entrega</h3><ul><li>Azure, Kubernetes (AKS)</li><li>Docker, Vercel</li><li>GitHub Actions, Git</li><li>NGINX, Let's Encrypt</li></ul></div>
+      <div><h3>Nuvem e entrega</h3><ul><li>Azure, AWS, Kubernetes (AKS)</li><li>Docker, Vercel</li><li>GitHub Actions, Git</li><li>NGINX, Let's Encrypt</li></ul></div>
       <div><h3>Observabilidade</h3><ul><li>Grafana, Prometheus, Loki</li><li>Sentry</li><li>Application Insights</li><li>k6</li></ul></div>
       <div><h3>Integrações</h3><ul><li>WhatsApp (Meta, Twilio, Z-API)</li><li>OpenAI, Gemini</li><li>Mercado Pago, Pix</li><li>Telegram, SendGrid</li><li>ERP Tiny, Senior, Active Directory</li></ul></div>
     </div>
