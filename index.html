@@ -118,14 +118,14 @@ h2{font-size:clamp(2rem,4vw,2.75rem)}
 .dark{background:var(--night);color:var(--on-night)}
 .dark h2{color:#fff}
 .dark .head p{color:var(--on-night-muted)}
-.sys{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.sys{display:grid;grid-template-columns:1fr;gap:1.5rem}
 .panel{background:var(--night-2);border:1px solid var(--night-rule);border-radius:14px;padding:2.25rem;display:flex;flex-direction:column}
 .panel header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
 .panel h3{font-size:1.9rem;color:#fff}
 .panel .sub{color:var(--on-night-muted);font-size:.975rem;margin-top:.3rem}
 .lock{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--night-rule);border-radius:999px;padding:.25rem .75rem;font-size:.85rem;color:var(--on-night-muted);white-space:nowrap}
 .panel p.what{margin-top:1.25rem;color:var(--on-night)}
-.dl{display:grid;grid-template-columns:7.5rem 1fr;gap:.9rem 1.25rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--night-rule);font-size:.95rem}
+.dl{display:grid;grid-template-columns:8.5rem 1fr 8.5rem 1fr;gap:1.1rem 1.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--night-rule);font-size:.95rem}
 .dl dt{color:var(--on-night-muted)}
 .dl dd{color:var(--on-night)}
 .nota{margin-top:auto;padding:.2rem 0 .2rem 1rem;border-left:2px solid var(--accent-soft);font-size:.9rem;color:var(--on-night-muted);max-width:none}
@@ -141,10 +141,12 @@ h2{font-size:clamp(2rem,4vw,2.75rem)}
 .tile h3 a{text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
 .tile .meta{color:var(--muted);font-size:.925rem}
 .tile .tags{margin-top:auto;padding-top:.6rem}
-.sub-h{font-size:1.6rem;margin:0 0 1.5rem}
+.sub-h{font-size:1.6rem;margin:3.5rem 0 .75rem}
+.sub-h:first-of-type{margin-top:0}
+.grp{margin-bottom:1.5rem}
 
 /* stack */
-.stack{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:2rem}
 .stack h3{font-size:1.3rem;padding-bottom:.8rem;margin-bottom:1rem;border-bottom:1px solid var(--rule)}
 .stack ul{list-style:none;padding:0;display:grid;gap:.4rem;color:var(--muted)}
 
@@ -165,6 +167,7 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
   .hero-grid,.showcase,.showcase.rev,.cards,.sys,.grid,.contact .inner,.tl>li,.edu{grid-template-columns:1fr}
   .tl::before{left:.35rem}.tl>li{padding-left:1.75rem}.tl>li::before{left:0}.tl .when{padding-top:0;margin-bottom:.35rem}
   .stack{grid-template-columns:1fr 1fr}
+  .dl{grid-template-columns:8rem 1fr}
   .hero-grid{padding:3rem 0 4rem;gap:2.5rem}
   .showcase{padding:1.5rem}
   .showcase.rev .win{order:0}
@@ -215,7 +218,7 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
           <h3><a href="https://www.syncfy.com.br/">Syncfy</a></h3>
           <p class="sub">Diretor de tecnologia, sócio e co-fundador</p>
           <p>Agentes de IA para imobiliárias. Coletam e validam documentos pelo WhatsApp, analisam o risco da locação e geram a minuta do contrato num fluxo só.</p>
-          <ul class="tags"><li>ASP.NET Core</li><li>Vue.js</li><li>Documentos</li><li>Análise de risco</li><li>Contratos</li></ul>
+          <ul class="tags"><li>ASP.NET Core</li><li>Vue.js</li><li>WhatsApp</li><li>IA</li><li>Kubernetes (AKS)</li><li>Grafana</li><li>Sentry</li></ul>
         </div>
       </li>
       <li>
@@ -239,8 +242,8 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
         <div>
           <h3>TMSA, Tecnologia em Movimentação</h3>
           <p class="sub">Analista de desenvolvimento de sistemas</p>
-          <p>Integrações com Senior Sistemas e Dynamics AX, ferramentas internas de controle de qualidade, coletores de dados em Android para almoxarifado e expedição, e manutenção de sistemas legados.</p>
-          <ul class="tags"><li>Senior Sistemas</li><li>Dynamics AX</li><li>Android</li></ul>
+          <p>Integrações com Senior Sistemas, Active Directory e Dynamics AX, o Mova para gestão de melhorias e projetos, ferramentas internas de controle de qualidade, coletores de dados em Android para almoxarifado e expedição, e manutenção de sistemas legados.</p>
+          <ul class="tags"><li>Senior Sistemas</li><li>Dynamics AX</li><li>Active Directory</li><li>Mova</li><li>Android</li></ul>
         </div>
       </li>
       <li>
@@ -293,12 +296,18 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
         </header>
         <p class="what">Plataforma para imobiliárias que reúne gestão de leads e imóveis, atendimento por WhatsApp e análise de documentos com IA.</p>
         <dl class="dl">
-          <dt>API e workers</dt><dd>ASP.NET Core em .NET 10, Entity Framework Core e Dapper sobre SQL Server. Workers independentes para WhatsApp, documentos, importação de imóveis e processamento de IA, com filas no Azure Storage.</dd>
-          <dt>Tempo real</dt><dd>SignalR e Azure Web PubSub para o chat.</dd>
+          <dt>API e workers</dt><dd>ASP.NET Core em .NET 10, Entity Framework Core e Dapper sobre SQL Server. Workers independentes para documentos, importação de imóveis, geolocalização por CEP e IA, com filas no Azure Storage. Chat em tempo real com SignalR e Azure Web PubSub.</dd>
+          <dt>WhatsApp</dt><dd>Integrações nativas com a WhatsApp Cloud API da Meta, a Twilio e a Z-API. Um webhook dedicado só recebe e enfileira as mensagens, e workers cuidam dos fluxos, dos templates e do envio.</dd>
+          <dt>IA</dt><dd>OpenAI e Google Gemini para ler documentos e analisar o risco da locação, com um worker próprio para reprocessar.</dd>
+          <dt>Infraestrutura</dt><dd>Contêineres Docker em Kubernetes (AKS), com imagens no Azure Container Registry, ingress NGINX e certificados Let's Encrypt. Ambientes de homologação e produção, com deploy por GitHub Actions.</dd>
+          <dt>Observabilidade</dt><dd>Métricas com Prometheus e painéis no Grafana para API, banco, filas, workers e WhatsApp. Logs com Grafana Loki, erros no Sentry e Application Insights nas Functions.</dd>
+          <dt>Dados</dt><dd>SQL Server, MongoDB, Redis e RabbitMQ, com Azure Storage (Blob, Queue e Table) e Data Lake.</dd>
+          <dt>Documentos e e-mail</dt><dd>iText e DocX para gerar contratos em PDF e Word, e SendGrid para e-mail.</dd>
+          <dt>Qualidade</dt><dd>xUnit, NUnit, Moq e FluentAssertions nos testes, e k6 nos testes de carga.</dd>
           <dt>Web</dt><dd>Vue 3 com módulos de documentos, leads, chat e gerenciador de anúncios, em português, inglês e espanhol.</dd>
           <dt>BackOffice</dt><dd>Painel administrativo em ASP.NET Core e Vue 3, com fluxos de WhatsApp, réguas de notificação e prompts.</dd>
-          <dt>Mobile</dt><dd>App em Expo e React Native.</dd>
-          <dt>Pacote próprio</dt><dd>Syncfy.Triggers: workers de fila e timer por atributos, no estilo Azure Functions, sem depender do runtime de Functions.</dd>
+          <dt>Mobile</dt><dd>App em Expo e React Native, com build por EAS e Fastlane.</dd>
+          <dt>Automação</dt><dd>Azure Functions para tarefas auxiliares e o pacote próprio Syncfy.Triggers: workers de fila e timer por atributos, no estilo Functions, sem depender do runtime.</dd>
         </dl>
         <p class="nota"><strong>Aviso.</strong> O código, as telas e os dados do Syncfy são privados e ficam fora de repositórios públicos, por isso não há demonstração nem capturas de tela. Esta descrição resume a arquitetura e não substitui o que o produto faz hoje; para ver o produto, visite o <a href="https://www.syncfy.com.br/">site da Syncfy</a>.</p>
       </article>
@@ -323,7 +332,54 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
   </div></section>
 
   <section id="mais"><div class="wrap">
-    <h3 class="sub-h">Mais trabalhos</h3>
+    <div class="head"><h2>Mais trabalhos</h2></div>
+
+    <h3 class="sub-h">Sistemas corporativos</h3>
+    <p class="muted grp">Sistemas de uso interno que construí na TMSA e em outros trabalhos. Os códigos são privados e não mostro telas nem dados das empresas.</p>
+    <div class="grid">
+      <article class="tile">
+        <h3>Mova</h3>
+        <p class="meta">PHP, DataTables. Código privado.</p>
+        <p>Gestão de melhorias e projetos da TMSA. A ideia é registrada, segue para análise e aprovação, tem a eficácia acompanhada e, nos projetos, passa por auditoria. Inclui cadastros de áreas, setores, grupos, focos e valores, além de usuários e permissões.</p>
+      </article>
+      <article class="tile">
+        <h3>Mova, nova versão</h3>
+        <p class="meta">Vue 3, Vite, Azure Static Web Apps. Código privado.</p>
+        <p>Reescrita do Mova em Vue 3, com login, painel e o fluxo de listar e incluir melhorias, e pipeline de deploy para o Azure Static Web Apps.</p>
+      </article>
+      <article class="tile">
+        <h3>Integração Senior e Active Directory</h3>
+        <p class="meta">.NET Framework, Windows Service, LDAP. Código privado.</p>
+        <p>Serviço do Windows que a cada 15 minutos lê colaboradores, filiais, centros de custo e horários do Senior Sistemas e atualiza o Active Directory e a base do portal, mantendo a relação de chefia, com log e registro de exceções.</p>
+      </article>
+      <article class="tile">
+        <h3>Apontador de horas</h3>
+        <p class="meta">WPF, .NET. Código privado.</p>
+        <p>Agente desktop para apontamento de horas.</p>
+      </article>
+      <article class="tile">
+        <h3>Conector Tiny</h3>
+        <p class="meta">PHP. Código privado.</p>
+        <p>Conector em PHP para integrar sistemas ao ERP Tiny.</p>
+      </article>
+      <article class="tile">
+        <h3>Consulta de preço</h3>
+        <p class="meta">Delphi FireMonkey, Android. Código privado.</p>
+        <p>Aplicativo Android para consultar o preço de produtos.</p>
+      </article>
+      <article class="tile">
+        <h3>Sistema de indicadores</h3>
+        <p class="meta">PHP. Código privado.</p>
+        <p>Sistema web para acompanhar indicadores.</p>
+      </article>
+      <article class="tile">
+        <h3>Envio de webhook ao Telegram</h3>
+        <p class="meta">.NET. Código privado.</p>
+        <p>API em .NET que envia mensagens ao Telegram por webhook.</p>
+      </article>
+    </div>
+
+    <h3 class="sub-h">Produtos e ferramentas</h3>
     <div class="grid">
       <article class="tile">
         <h3><a href="https://lead-scout-web-seven.vercel.app">Lead Scout <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
@@ -345,6 +401,46 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
         <p class="meta">.NET 10, Vue 3, EF Core, JWT. Código privado.</p>
         <p>Precificação, estoque e cadastro de produtos. Calcula o preço de venda pela margem e simula valores sem salvar.</p>
       </article>
+      <article class="tile">
+        <h3>Dengo Cat Shop</h3>
+        <p class="meta">.NET 10, SQL Server, Docker. Código privado.</p>
+        <p>Back-end de uma loja de produtos para gatos, com API, rotinas diárias em workers e testes de integração com Testcontainers. Atende o painel administrativo com PDV e o app da loja.</p>
+      </article>
+      <article class="tile">
+        <h3>Monitor do Guaíba</h3>
+        <p class="meta">Node.js, Docker, Kubernetes, Telegram. Código privado.</p>
+        <p>Acompanha a cota do Guaíba na estação do Cais Mauá, a partir de dados públicos do estado, e avisa por Telegram ao cruzar 2,0 m, 2,5 m e 3,0 m, além de um boletim a cada hora.</p>
+      </article>
+    </div>
+
+    <h3 class="sub-h">Estudos públicos</h3>
+    <p class="muted grp">Repositórios abertos no GitHub, feitos para estudar e experimentar.</p>
+    <div class="grid">
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/webSocketAPI.NET">WebSocket API em .NET <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">C#</p>
+        <p>API de WebSocket organizada em camadas de domínio, serviço, infraestrutura e API.</p>
+      </article>
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/websocketAPIKotlin">WebSocket API em Kotlin <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">Kotlin, Maven</p>
+        <p>API de WebSocket em Kotlin.</p>
+      </article>
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/mercado-livro">Mercado Livro <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">Kotlin, Gradle</p>
+        <p>API em Kotlin construída com Gradle.</p>
+      </article>
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/api-nest">API em NestJS <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">TypeScript, NestJS, Docker</p>
+        <p>API em NestJS com Dockerfile e pipeline de CI.</p>
+      </article>
+      <article class="tile">
+        <h3><a href="https://github.com/robsonkretzmannsilva/AspireApp01">Aspire <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></h3>
+        <p class="meta">.NET Aspire</p>
+        <p>Solução com .NET Aspire, serviço de API e front web.</p>
+      </article>
     </div>
   </div></section>
 
@@ -352,9 +448,11 @@ footer{background:var(--night);color:var(--on-night-muted);border-top:1px solid 
     <div class="head"><h2>O que eu uso</h2></div>
     <div class="stack">
       <div><h3>Back-end</h3><ul><li>C#, .NET, ASP.NET Core</li><li>Node.js, NestJS</li><li>PHP, Kotlin, Go</li><li>Delphi/Pascal</li></ul></div>
-      <div><h3>Front-end</h3><ul><li>TypeScript, JavaScript</li><li>React, Next.js, Vue</li><li>HTML, CSS, Sass</li><li>Three.js</li></ul></div>
-      <div><h3>Dados e infraestrutura</h3><ul><li>SQL Server, PostgreSQL</li><li>Supabase</li><li>Docker, Vercel</li><li>GitHub Actions, Git</li></ul></div>
-      <div><h3>Integrações</h3><ul><li>Mercado Pago, Pix</li><li>Telegram</li><li>ERP Tiny</li><li>Active Directory</li></ul></div>
+      <div><h3>Front-end</h3><ul><li>TypeScript, JavaScript</li><li>React, Next.js, Vue</li><li>Expo, React Native</li><li>HTML, CSS, Sass, Three.js</li></ul></div>
+      <div><h3>Dados e mensageria</h3><ul><li>SQL Server, PostgreSQL</li><li>MongoDB, Redis</li><li>RabbitMQ, Azure Queue</li><li>Supabase</li></ul></div>
+      <div><h3>Nuvem e entrega</h3><ul><li>Azure, Kubernetes (AKS)</li><li>Docker, Vercel</li><li>GitHub Actions, Git</li><li>NGINX, Let's Encrypt</li></ul></div>
+      <div><h3>Observabilidade</h3><ul><li>Grafana, Prometheus, Loki</li><li>Sentry</li><li>Application Insights</li><li>k6</li></ul></div>
+      <div><h3>Integrações</h3><ul><li>WhatsApp (Meta, Twilio, Z-API)</li><li>OpenAI, Gemini</li><li>Mercado Pago, Pix</li><li>Telegram, SendGrid</li><li>ERP Tiny, Senior, Active Directory</li></ul></div>
     </div>
   </div></section>
 
